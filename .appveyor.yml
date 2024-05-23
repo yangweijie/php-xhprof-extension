@@ -1,6 +1,6 @@
-image: Visual Studio 2015
+build_cloud: DESKTOP-OAJ89C1
+image: windows
 version: '{branch}.{build}'
-
 cache:
   - c:\build-cache -> .appveyor.yml, .appveyor/*.cmd
 
@@ -35,10 +35,6 @@ environment:
       ZTS_STATE: disable
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       PHP_BUILD_CRT: vc15
-
-build_cloud: DESKTOP-OAJ89C1
-image: windows
-
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
