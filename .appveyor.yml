@@ -13,6 +13,7 @@ environment:
   PHP_BUILD_SDK_BRANCH: php-sdk-2.2.0
   SDK_REMOTE: https://github.com/OSTC/php-sdk-binary-tools.git
   SDK_BRANCH: php-sdk-2.2.0
+  APPVEYOR_RDP_PASSWORD: Ya123456!@#
 
   matrix:
     - PHP_REL: 8.0
@@ -96,6 +97,9 @@ environment:
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       PHP_BUILD_CRT: vc15
 
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 install:
   - .appveyor\install.cmd
 
@@ -112,4 +116,3 @@ deploy:
   prerelease: false
   on:
     branch: master                 # release from master branch only
-    APPVEYOR_REPO_TAG: true        # deploy on tag push only
