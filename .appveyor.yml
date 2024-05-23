@@ -15,29 +15,19 @@ environment:
   APPVEYOR_RDP_PASSWORD: Ya123456!@#
 
   matrix:
-    - PHP_REL: 8.2
-      ARCHITECTURE: x64
-      ZTS_STATE: disable
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      PHP_BUILD_CRT: vs16
     - PHP_REL: 7.4
       ARCHITECTURE: x64
       ZTS_STATE: enable
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       PHP_BUILD_CRT: vc15
+    - PHP_REL: 7.4
+      ARCHITECTURE: x64
+      ZTS_STATE: disable
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      PHP_BUILD_CRT: vc15  
     - PHP_REL: 7.3
       ARCHITECTURE: x64
       ZTS_STATE: enable
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      PHP_BUILD_CRT: vc15
-    - PHP_REL: 7.2
-      ARCHITECTURE: x64
-      ZTS_STATE: enable
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      PHP_BUILD_CRT: vc15
-    - PHP_REL: 7.4
-      ARCHITECTURE: x64
-      ZTS_STATE: disable
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       PHP_BUILD_CRT: vc15
     - PHP_REL: 7.3
@@ -51,7 +41,7 @@ init:
 
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-  
+
 install:
   - .appveyor\install.cmd
 
@@ -63,8 +53,9 @@ deploy:
   provider: GitHub
   auth_token:
     secure: 4BISwFjqqswZYt/WHI0FamI/FD4oSsX/nYk/fD+qQeehSWPQugixI1DaMgXgatmi # your encrypted token from GitHub
-  artifact: build\*.zip            # upload all NuGet packages to release assets
+  artifact: *.zip            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
+  force_update: true
   on:
     branch: master                 # release from master branch only
