@@ -11,6 +11,7 @@ environment:
   PHP_BUILD_SDK_BRANCH: php-sdk-2.2.0
   SDK_REMOTE: https://github.com/OSTC/php-sdk-binary-tools.git
   SDK_BRANCH: php-sdk-2.2.0
+  APPVEYOR_REPO_TAG_NAME: 5.0.4
   APPVEYOR_RDP_PASSWORD: Ya123456!@#
 
   matrix:
@@ -54,7 +55,7 @@ install:
 build_script:
   - .appveyor\build.cmd
 deploy:
-  release: php_tideways_xhprof-v$(APPVEYOR_BUILD_VERSION)
+  release: php_tideways_xhprof-v5.0.4
   description: 'release php_tideways'
   provider: GitHub
   auth_token:
