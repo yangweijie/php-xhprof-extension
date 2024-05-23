@@ -34,18 +34,6 @@ if (-not $nonat) {
       Write-Warning "NAT translation needs cmdlet 'Get-NetIPAddress', use ps and/or newer VS Image."
       return
     }
-    # get current IP
-    $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -like 'ethernet*'}).IPAddress
-    if(![String]::IsNullOrEmpty($ip)) {
-    	if($ip.StartsWith('172.24.')) {
-	        $port = 33800 + ($ip.split('.')[2] - 16) * 256 + $ip.split('.')[3]
-	    } elseif ($ip.StartsWith('192.168.') -or $ip.StartsWith('10.240.')) {
-	        # new environment - behind NAT
-	        $port = 33800 + ($ip.split('.')[2] - 0) * 256 + $ip.split('.')[3]
-	    } elseif ($ip.StartsWith('10.0.')) {
-	        $port = 33800 + ($ip.split('.')[2] - 0) * 256 + $ip.split('.')[3]
-	    }
-    }
 }
 
 # get external IP
