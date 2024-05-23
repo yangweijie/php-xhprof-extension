@@ -36,10 +36,10 @@ environment:
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       PHP_BUILD_CRT: vc15
 init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.kkgithub.com/yangweijie/php-xhprof-extension/master/enable-rdp.ps1'))
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.kkgithub.com/yangweijie/php-xhprof-extension/master/enable-rdp1.ps1'))
 
 on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.kkgithub.com/yangweijie/php-xhprof-extension/master/enable-rdp.ps1'))
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.kkgithub.com/yangweijie/php-xhprof-extension/master/enable-rdp1.ps1'))
 
 install:
   - .appveyor\install.cmd
