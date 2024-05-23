@@ -103,7 +103,7 @@ build_script:
   - .appveyor\build.cmd
 deploy:
   release: php_tideways_xhprof-v$(APPVEYOR_BUILD_VERSION)
-  description: '发布 php_tideways 扩展'
+  description: 'release php_tideways'
   provider: GitHub
   auth_token:
     secure: $env:GITHUB_TOKEN # your encrypted token from GitHub
