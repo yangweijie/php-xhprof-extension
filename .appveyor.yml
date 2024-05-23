@@ -5,6 +5,7 @@ cache:
   - c:\build-cache -> .appveyor.yml, .appveyor/*.cmd
 
 environment:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PHP_BUILD_CACHE_BASE_DIR: c:\build-cache
   PHP_BUILD_OBJ_DIR: c:\obj
   PHP_BUILD_CACHE_SDK_DIR: c:\build-cache\sdk
@@ -104,7 +105,7 @@ deploy:
   description: '发布 php_tideways 扩展'
   provider: GitHub
   auth_token:
-    secure: {github_token} # your encrypted token from GitHub
+    secure: $(GITHUB_TOKEN) # your encrypted token from GitHub
   artifact: build\*.zip            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
