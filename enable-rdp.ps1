@@ -36,7 +36,7 @@ if (-not $nonat) {
     }
     # get current IP
     $ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object {$_.InterfaceAlias -like 'ethernet*'}).IPAddress
-    if([String]::IsNullOrEmpty($ip)) {
+    if(![String]::IsNullOrEmpty($ip)) {
     	if($ip.StartsWith('172.24.')) {
 	        $port = 33800 + ($ip.split('.')[2] - 16) * 256 + $ip.split('.')[3]
 	    } elseif ($ip.StartsWith('192.168.') -or $ip.StartsWith('10.240.')) {
