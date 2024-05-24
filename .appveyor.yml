@@ -1,6 +1,6 @@
 # image: Visual Studio 2015
 
-build_cloud: WIN-VHV7TCDPQEC
+build_cloud: DESKTOP-OAJ89C1
 image: Windows
 
 version: '{branch}.{build}'
