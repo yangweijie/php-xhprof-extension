@@ -1,7 +1,7 @@
-# image: Visual Studio 2015
+image: Visual Studio 2015
 
-build_cloud: DESKTOP-OAJ89C1
-image: Windows
+# build_cloud: DESKTOP-OAJ89C1
+# image: Windows
 
 version: '{branch}.{build}'
 cache:
@@ -22,12 +22,12 @@ environment:
       ARCHITECTURE: x64
       ZTS_STATE: enable
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      PHP_BUILD_CRT: vs16
+      PHP_BUILD_CRT: vc16
     - PHP_REL: 7.4
       ARCHITECTURE: x64
       ZTS_STATE: disable
       APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
-      PHP_BUILD_CRT: vs16  
+      PHP_BUILD_CRT: vc16  
     - PHP_REL: 7.3
       ARCHITECTURE: x64
       ZTS_STATE: enable
