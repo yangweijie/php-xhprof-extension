@@ -21,13 +21,13 @@ environment:
     - PHP_REL: 7.4
       ARCHITECTURE: x64
       ZTS_STATE: enable
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      PHP_BUILD_CRT: vc15
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+      PHP_BUILD_CRT: vc16
     - PHP_REL: 7.4
       ARCHITECTURE: x64
       ZTS_STATE: disable
-      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
-      PHP_BUILD_CRT: vc15  
+      APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+      PHP_BUILD_CRT: vc16  
     - PHP_REL: 7.3
       ARCHITECTURE: x64
       ZTS_STATE: enable
