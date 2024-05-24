@@ -1,4 +1,8 @@
-image: Visual Studio 2015
+# image: Visual Studio 2015
+
+build_cloud: WIN-VHV7TCDPQEC
+image: Windows
+
 version: '{branch}.{build}'
 cache:
   - c:\build-cache -> .appveyor.yml, .appveyor/*.cmd
