@@ -55,7 +55,6 @@ deploy:
   provider: GitHub
   auth_token:
     secure: 4BISwFjqqswZYt/WHI0FamI/FD4oSsX/nYk/fD+qQeehSWPQugixI1DaMgXgatmi # your encrypted token from GitHub
-  artifacts: '**\*.dll'            # upload all NuGet packages to release assets
   draft: false
   prerelease: false
   force_update: true
